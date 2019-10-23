@@ -1,0 +1,7 @@
+.popup-img__place-card {
+    max-width: 80vw;
+    max-height: 80vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content:center
+}
