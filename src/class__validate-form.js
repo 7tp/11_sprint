@@ -7,7 +7,7 @@ const errProfileName = document.querySelector('#error-profile-name');
 const errProfileJob = document.querySelector('#error-job');
 
 //Проверка валидности форм
-class ValidateForm {
+export default class ValidateForm {
     constructor(button, name, linkOrJob) {
         this.button = button;
         this.name = name;
@@ -69,5 +69,4 @@ class ValidateForm {
             errProfileJob.textContent = "Должно быть от 2 до 30 символов";
         }
     }
-
 }

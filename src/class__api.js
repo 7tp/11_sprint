@@ -1,7 +1,7 @@
 'use strict';
 
 //Получение информации из сервера
-class Api {
+export default class Api {
   constructor(url, token) {
     this.url = url;
     this.token = token

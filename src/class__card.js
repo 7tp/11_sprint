@@ -1,7 +1,9 @@
 'use strict';
+const popupImg = document.querySelector('.popup-img');
+const popupImgCloseBtn = document.querySelector('.popup-img__close');
 
 //Создание карточек
-class Card {
+export default class Card {
   constructor(name, link) {
     this.name = name;
     this.link = link;
@@ -13,7 +15,7 @@ class Card {
     const tmplCard = document.querySelector('#tmplCards').content.querySelector('.place-card');
     let tmplClone = tmplCard.cloneNode(true);
 
-    placesList.appendChild(tmplClone);
+    document.querySelector('.places-list').appendChild(tmplClone);
 
     tmplClone.querySelector('.place-card__image').setAttribute('style', `background-image: url(${link})`);
     tmplClone.querySelector('.place-card__name').textContent = name;
@@ -35,5 +37,8 @@ class Card {
     });
 
     new Popup(popupImg, element.querySelector('.place-card__image'), popupImgCloseBtn);
+
   }
 }
+
+import Popup from './class__popup.js'

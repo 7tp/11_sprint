@@ -17,13 +17,17 @@ const avatarForm = document.forms.avatar;
 const newAvatar = avatarForm.elements.avatar__link;
 const userAvatar =  document.querySelector('.user-info__photo');
 
+const api = new Api(serverUrl, '4ed88103-f904-48a9-b18c-9f00126cc9ec');
+
 //Получение информации о профиле из сервера
-api.loadUser()
+function getProfile() {
+  api.loadUser()
   .then(res => {
     userName.textContent = res.name;
     userJob.textContent = res.about;
     userAvatar.setAttribute('style', `background-image: url(${res.avatar})`)
   });
+}
 
 //Pедактирование профиля
 profileForm.addEventListener('submit', function(event) {
@@ -61,6 +65,8 @@ function profileLoading(isLoading) {
   }
 }
 
+getProfile();
+
 //Открытие и закрытие формы редактирования профиля
 new Popup(popupProfile, profileEditButton, profileEditCloseButton);
 
@@ -72,3 +78,12 @@ new Popup(popupAvatar, userAvatar, avatarEditCloseButton);
 
 //Проверка валидности значений формы обновления аватара
 new ValidateForm(avatarSaveButton, newAvatar, newAvatar);
+
+//Импорт
+import Api from './class__api';
+import Popup from './class__popup.js';
+import ValidateForm from './class__validate-form';
+import {serverUrl} from './variables';
+
+//Экспорт
+export {getProfile, profileLoading}

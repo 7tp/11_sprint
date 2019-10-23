@@ -1,10 +1,12 @@
 'use strict';  
 
 //Хранение и отрисовка карточек
-class CardList {
+export default class CardList {
   constructor(container, placesArr) {
     this.container = container;
     this.placeRender(placesArr);
+    // Можно улучшить - правильнее передавать placesArr под именем cards
+    // и внутри методов использовать this.cards без повторной передачи параметра
   }
   //Добавление новой карточки на страницу
   addCard(cardName, cardLink) {
@@ -19,3 +21,5 @@ class CardList {
     }
   }
 }
+
+import Card from './class__card.js'
