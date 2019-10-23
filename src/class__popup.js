@@ -1,7 +1,7 @@
 'use strict';
-  
+
 //Открытие и закрытие попапов
-class Popup {
+export default class Popup {
     constructor(popup, openBtn, closeBtn) {
         this.popup = popup;
         this.openBtn = openBtn;
@@ -19,7 +19,7 @@ class Popup {
     close(){
         let errText = document.querySelectorAll('.popup__error');
         this.popup.classList.remove('popup_is-opened');
-        cardForm.reset();
+        document.forms.new.reset();
         errText.forEach(function(text) {
             text.textContent = "";
         });
