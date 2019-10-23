@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mesto</title>
+  <link rel="stylesheet" src="./pages/index.css">
+</head>
+<body>
+  <div class="root">
+    <header class="header root__section">
+      <img src="./images/logo.svg" alt="mesto logo" class="logo">
+    </header>
+    <div class="profile root__section">
+      <div class="user-info">
+        <div class="user-info__photo"></div>
+        <div class="user-info__data">
+          <h1 class="user-info__name"></h1>
+          <p class="user-info__job"></p>
+          <button class="user-info__edit-button">Edit</button>
+        </div>
+        <button class="button user-info__button">+</button>
+      </div>
+    </div>
+    <div class="places-list root__section">
+    </div>
+
+    <template id="tmplCards">
+      <div class="place-card">
+        <div class="place-card__image">
+            <button class="place-card__delete-icon"></button>
+        </div>
+        <div class="place-card__description">
+          <h3 class="place-card__name"></h3>
+          <div class="place-card__like">
+            <button class="place-card__like-icon"></button>
+            <span class="place-card__like-count">0</span>
+          </div>
+        </div>
+     </div>
+    </template>
+
+    <div class="popup-profile">
+      <div class="popup__content">
+        <img src="./images/close.svg" alt="" class="popup-profile__close">
+        <h3 class="popup__title">Редактировать профиль</h3>
+        <form class="popup__form" name="profile">
+          <label>
+            <input type="text" name="profile_name" class="popup__input popup__input_type_name" placeholder="Имя" minlength="2" maxlength="30" required>
+            <span id="error-profile-name" class="popup__error"></span>
+          </label>
+          <label>
+            <input
+            type="text" name="profile_job" class="popup__input popup__input_type_link-url" placeholder="О себе" minlength="2" maxlength="30" required>
+            <span id="error-job" class="popup__error"></span>
+          </label>
+            <button type="submit" class="button popup__button_save">Сохранить</button>
+        </form>
+      </div>
+    </div> 
+    <div class="popup">
+      <div class="popup__content">
+        <img src="./images/close.svg" alt="" class="popup__close">
+        <h3 class="popup__title">Новое место</h3>
+        <form class="popup__form" name="new">
+            <label>
+              <input type="text" name="name" class="popup__input popup__input_type_name" placeholder="Название"  minlength="2" maxlength="30" required>
+              <span id="error-name" class="popup__error"></span>
+            </label>
+            <label>
+              <input type="url" name="link" class="popup__input popup__input_type_link-url" placeholder="Ссылка на картинку" required>
+              <span id="error-link" class="popup__error"></span>
+            </label>
+            <button type="submit" class="button popup__button popup__button-disabled">+</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup-img">
+      <div class="popup-img__content">
+        <img src="./images/close.svg" alt="" class="popup-img__close"> 
+        <img scr="" alt="no pic" class="popup-img__place-card" >
+      </div>
+    </div>
+    <div class="popup-avatar">
+      <div class="popup-avatar__content">
+        <img src="./images/close.svg" alt="" class="popup-avatar__close"> 
+        <h3 class="popup__title">Обновить аватар</h3>
+        <form class="popup__form" name="avatar">
+            <label>
+              <input type="url" name="avatar__link" class="popup__input popup__input_type_link-url" placeholder="Ссылка на картинку" required>
+              <span id="error-avatar" class="popup__error"></span>
+            </label>
+            <button type="submit" class="button popup-avatar__button popup__button-disabled">Сохранить</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="main.62e9d722de2c3f92d83a.js"></script>
+</body>
+</html>
