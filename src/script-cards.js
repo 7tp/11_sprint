@@ -2,7 +2,6 @@
 
 const root = document.querySelector('.root');
 const placesList = document.querySelector('.places-list');
-
 const popupCard = document.querySelector('.popup');
 const popupOpenButton = document.querySelector('.user-info__button');
 const popupCloseButton = document.querySelector('.popup__close');
@@ -11,11 +10,7 @@ const cardForm = document.forms.new;
 const cardName = cardForm.elements.name;
 const cardLink = cardForm.elements.link;
 
-const popupImg = document.querySelector('.popup-img');
-const popupImgCloseBtn = document.querySelector('.popup-img__close');
-
-const myId = 'b7dcd7edd2fc9c71b434cd70';
-const api = new Api('http://95.216.175.5/cohort3', '4ed88103-f904-48a9-b18c-9f00126cc9ec');
+const api = new Api(serverUrl, '4ed88103-f904-48a9-b18c-9f00126cc9ec');
 
 //Получения карточек из сервера
 function getCards() {
@@ -37,6 +32,15 @@ function getCards() {
           document.querySelectorAll('.place-card__delete-icon')[i].style.display = 'inline';
         }
       }
+
+      /*document.querySelectorAll('.place-card__delete-icon').forEach(function(elem, i) {
+        if (res[i].owner._id === 'fa64248dbbf2e4a81c1416af') {
+          elem.classList.remove('.place-card__delete-icon');
+          elem.style.display = 'inline';
+        } // можно улучшить - для коллекций удобнее применять оператор for or
+        // так можно обойтись без конвертации в массив
+        // https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/for...of
+      }); */
 
       //Сделать иконки "лайк" у полюбившихся карточек видимыми
       document.querySelectorAll('.place-card__like-icon').forEach(function(elem, i) {
@@ -94,6 +98,7 @@ function getCards() {
     });
 }
 
+
 //Добавление новой карточки
 cardForm.addEventListener('submit', function(event) {
   event.preventDefault();
@@ -115,8 +120,20 @@ cardForm.addEventListener('submit', function(event) {
 
 getCards();
 
+
 //Открытие и закрытие формы добавления новых карточек
 new Popup(popupCard, popupOpenButton, popupCloseButton);
 
 //Проверка валидности значений формы добавления новых карточек
 new ValidateForm(addButton, cardName, cardLink);
+
+//Импорт
+import Api from './class__api';
+import CardList from './class__card-list';
+import Popup from './class__popup';
+import ValidateForm from './class__validate-form';
+import {serverUrl, myId} from './variables';
+import {profileLoading} from './script-profile';
+
+//Экспорт
+export {getCards}
