@@ -10,7 +10,7 @@ const cardForm = document.forms.new;
 const cardName = cardForm.elements.name;
 const cardLink = cardForm.elements.link;
 
-const api = new Api(serverUrl, '4ed88103-f904-48a9-b18c-9f00126cc9ec');
+const api = new Api(serverUrl, myToken);
 
 //Получения карточек из сервера
 function getCards() {
@@ -132,7 +132,7 @@ import Api from './class__api';
 import CardList from './class__card-list';
 import Popup from './class__popup';
 import ValidateForm from './class__validate-form';
-import {serverUrl, myId} from './variables';
+import {serverUrl, myToken, myId} from './variables';
 import {profileLoading} from './script-profile';
 
 //Экспорт

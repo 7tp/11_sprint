@@ -17,7 +17,7 @@ const avatarForm = document.forms.avatar;
 const newAvatar = avatarForm.elements.avatar__link;
 const userAvatar =  document.querySelector('.user-info__photo');
 
-const api = new Api(serverUrl, '4ed88103-f904-48a9-b18c-9f00126cc9ec');
+const api = new Api(serverUrl, myToken);
 
 //Получение информации о профиле из сервера
 function getProfile() {
@@ -83,7 +83,7 @@ new ValidateForm(avatarSaveButton, newAvatar, newAvatar);
 import Api from './class__api';
 import Popup from './class__popup.js';
 import ValidateForm from './class__validate-form';
-import {serverUrl} from './variables';
+import {serverUrl, myToken} from './variables';
 
 //Экспорт
 export {getProfile, profileLoading}
