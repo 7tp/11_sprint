@@ -1,6 +1,6 @@
 const presets = [
     [
-    "@babel/env",
+    "@babel/preset-env",
     {
         targets: { // версии браузеров которые нужно поддерживать
             edge: "17",

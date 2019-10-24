@@ -11,14 +11,28 @@ module.exports = {
     entry: { main: './src/index.js' },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].[chunkhash].js'
+        filename: './js/[name].[chunkhash].js'
     },
     module: {
-        rules: [{
+        rules: [
+        {
             test: /\.js$/, // ищет все js файлы
             use: { loader: "babel-loader" }, // весь JS обрабатывается пакетом babel-loader
             exclude: /node_modules/ // исключает папку node_modules
         },
+        {
+            test: /\.css$/i, // применять это правило только к CSS-файлам
+            use: [//если собирается в режиме dev, то плагин MiniCssExtractPlugin загружать не нужно
+                (isDev ? 'style-loader' : {
+                    loader: MiniCssExtractPlugin.loader,
+                    options: {
+                    publicPath: '../'
+                    }
+                }),
+                'css-loader',
+                'postcss-loader'
+            ]
+        },  
         {
             test: /\.(png|jpe?g|gif|ico|svg)$/, //для работы с изображениями и их оптимизации
             use: [
@@ -31,25 +45,11 @@ module.exports = {
                               return '[path][name].[ext]';
                             }
                             return '[contenthash].[ext]';
-                        },
-                        outputPath: (url, resourcePath, context) => {
-                            if (/my-custom-image\.png/.test(resourcePath)) {
-                              return `other_output_path/${url}`;
-                            }
-                            if (/images/.test(context)) {
-                              return `image_output_path/${url}`;
-                            }
-                            return `output_path/${url}`;
                         }
-                     }
-                    
+                     }    
                  },
             ],
         },
-        {
-            test: /\.css$/i, // применять это правило только к CSS-файлам
-            use: [isDev ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'] // к этим файлам нужно применить пакеты, которые мы уже установили
-        }, //если собирается в режиме dev, то плагин MiniCssExtractPlugin загружать не нужно
         {
             test: /\.(eot|ttf|woff|woff2)$/, // для подгрузки шрифтов
             loader: 'file-loader?name=./vendor/[name].[ext]'
@@ -61,7 +61,7 @@ module.exports = {
             'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
         }),
         new MiniCssExtractPlugin({
-            filename: 'style.[contenthash].css'
+            filename: './css/[name].[contenthash].css'
         }),
         new OptimizeCssAssetsPlugin({
             assetNameRegExp: /\.css$/g,
@@ -73,6 +73,7 @@ module.exports = {
        }),
        new HtmlWebpackPlugin({
         inject: false, // стили НЕ нужно прописывать внутри тегов
+        hash: true,
         template: './src/index.html', // откуда брать образец для сравнения с текущим видом проекта
         filename: 'index.html' // имя выходного файла, то есть того, что окажется в папке dist после сборки
        }),

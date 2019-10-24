@@ -23,7 +23,7 @@ export default class Popup {
         errText.forEach(function(text) {
             text.textContent = "";
         });
-        avatarForm.reset();
+        document.forms.avatar.reset();
 
         this.openBtn.removeEventListener('click', () => this.open());
     }

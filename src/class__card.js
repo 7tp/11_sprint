@@ -30,9 +30,9 @@ export default class Card {
     element.querySelector('.place-card__image').addEventListener('click', function(event) {
       let imgSrc = event.target.style.backgroundImage.slice(5,-2);
       popupImg.querySelector('.popup-img__place-card').setAttribute('src', `${imgSrc}`);
-      root.appendChild(popupImg);
+      document.querySelector('.root').appendChild(popupImg);
 
-      return root;
+      return document.querySelector('.root');
      
     });
 
