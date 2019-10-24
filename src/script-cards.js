@@ -1,6 +1,5 @@
 'use strict';
 
-const root = document.querySelector('.root');
 const placesList = document.querySelector('.places-list');
 const popupCard = document.querySelector('.popup');
 const popupOpenButton = document.querySelector('.user-info__button');
