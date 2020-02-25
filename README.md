@@ -1,4 +1,4 @@
-# [Project 11 Praktikum](https://7tp.github.io/11_sprint/)
+# Open here: [Project 11 Praktikum](https://7tp.github.io/11_sprint/)
 ---
 ## Собранный код проекта из 9 спринта
 
