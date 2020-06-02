@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/7tp/11_sprint.git"
+    "url": "git+https://github.com/7tp/mesto.git"
   },
-  "author": "Monty Brogan",
+  "author": "Irina Iakovleva",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/7tp/11_sprint/issues"
+    "url": "https://github.com/7tp/mesto/issues"
   },
-  "homepage": "https://github.com/7tp/11_sprint",
+  "homepage": "https://github.com/7tp/mesto",
   "devDependencies": {
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",

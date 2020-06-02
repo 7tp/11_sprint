@@ -12,7 +12,6 @@ export default class CardList {
   addCard(cardName, cardLink) {
     const { cardElement } = new Card(cardName, cardLink);
     this.container.appendChild(cardElement);
-
   }
   //Автоматическое добавление карточек на страницу
   placeRender(placesArr) {
